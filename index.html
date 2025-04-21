@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Reena 🎉</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, #f0f8ff, #ffccff);
+        }
+
+        nav {
+            background-color: #ff3399;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        section {
+            padding: 4rem 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        .main-section {
+            display: block;
+        }
+
+        section h2 {
+            color: #d9006c;
+            font-size: 2rem;
+        }
+
+        .btn {
+            background-color: #ff66cc;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e60073;
+        }
+
+        img {
+            width: 300px;
+            max-width: 90%;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>🎂 Happy Birthday Reena 🎂</nav>
+
+    <!-- Visible Main Sections -->
+    <section class="main-section" id="main">
+        <div>
+            <h2>1. Heartfelt Birthday Wishes</h2>
+            <p>Reena, you fill the world with endless joy, and your kindness shines brighter than the stars! 🌟</p>
+            <button class="btn" onclick="showSection('page1')">See More 🎁</button>
+        </div>
+        <div>
+            <h2>2. Cherished Memories</h2>
+            <p>Every memory with you is a treasure, full of laughter, love, and happiness! 💫</p>
+            <button class="btn" onclick="showSection('page2')">See More 📸</button>
+        </div>
+        <div>
+            <h2>3. The Magic You Bring</h2>
+            <p>Your smile, your laughter — it’s the magic that makes the world a better place! 🌈</p>
+            <button class="btn" onclick="showSection('page3')">See More 💌</button>
+        </div>
+        <div>
+            <h2>4. Our Fun Moments</h2>
+            <p>Every moment with you is filled with laughter and fun, making life so much brighter! 😂</p>
+            <button class="btn" onclick="showSection('page4')">See More 😜</button>
+        </div>
+        <div>
+            <h2>5. The Final Surprise</h2>
+            <p>A little surprise to remind you that you’re truly cherished and loved more than words can say! 💖</p>
+            <button class="btn" onclick="showSection('page5')">See More 🎉</button>
+        </div>
+    </section>
+
+    <!-- Hidden Pages -->
+    <section id="page1">
+        <h2>🎂 Heartfelt Birthday Wishes 🎂</h2>
+        <p>Reena, on your special day, I want to wish you a lifetime filled with endless love, happiness, and success.
+            You are a wonderful person, and you deserve all the best in the world. May your birthday be as amazing as
+            you are! 💝</p>
+        <img src="./assets/images/reena-1.png" alt="Birthday Reena">
+        <br><button class="btn" onclick="goBack()">⬅ Back</button>
+    </section>
+
+    <section id="page2">
+        <h2>📸 Cherished Memories 📸</h2>
+        <p>From childhood moments to unforgettable experiences, every single memory with you holds a special place in my
+            heart. Here’s to many more moments of laughter and happiness together! 💞</p>
+        <img src="./assets/images/reena-4.png" alt="Memory Pic">
+        <br><button class="btn" onclick="goBack()">⬅ Back</button>
+    </section>
+
+    <section id="page3">
+        <h2>💖 The Magic You Bring 💖</h2>
+        <p>Your presence lights up every room, and your kind heart touches everyone you meet. You bring so much joy and
+            positivity into the world, and we are all so lucky to know you. 🌟</p>
+        <img src="./assets/images/reena-6.png" alt="Special Reena">
+        <br><button class="btn" onclick="goBack()">⬅ Back</button>
+    </section>
+
+    <section id="page4">
+        <h2>😂 Our Fun Moments 😂</h2>
+        <p>From our inside jokes to spontaneous adventures, every moment spent with you is full of fun and laughter. I
+            treasure these memories forever! 💫</p>
+        <img src="./assets/images/reena-13.png" alt="Funny Pic">
+        <br><button class="btn" onclick="goBack()">⬅ Back</button>
+    </section>
+
+    <section id="page5">
+        <h2>🎊 The Final Surprise 🎊</h2>
+        <p>Reena, you are a true gem, and on your special day, I want to remind you how much you mean to all of us.
+            Here’s to an amazing year ahead and many more memories to cherish. You are loved, today and always! 💐</p>
+        <img src="./assets/images/reena-10.png" alt="Final Surprise">
+        <br><button class="btn" onclick="goBack()">⬅ Back</button>
+    </section>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function goBack() {
+            document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+            document.getElementById('main').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
