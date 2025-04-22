@@ -2,14 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Birthday Reena 🎉</title>
     <style>
         body {
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
             background: linear-gradient(to bottom right, #f0f8ff, #ffccff);
+            overflow: hidden;
+            /* Prevent scrollbar on countdown */
         }
 
         nav {
@@ -21,6 +23,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            display: none;
         }
 
         section {
@@ -30,7 +33,7 @@
         }
 
         .main-section {
-            display: block;
+            display: none;
         }
 
         section h2 {
@@ -61,11 +64,83 @@
             margin-top: 1.5rem;
             box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
         }
+
+        /* Countdown screen styling */
+        #countdown-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #ffe6f0, #ffccff);
+        }
+
+        .countdown-box {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.3);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .countdown-box h1 {
+            font-size: 1.8rem;
+            color: #ff3399;
+            margin-bottom: 1rem;
+        }
+
+        #countdown {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #d9006c;
+            animation: pulse 1s infinite;
+        }
+
+        .countdown-box p {
+            font-size: 1.2rem;
+            color: #ff3399;
+            margin-top: 1rem;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <nav>🎂 Happy Birthday Reena 🎂</nav>
+    <!-- Countdown screen with small cute box -->
+    <section id="countdown-screen">
+        <div class="countdown-box">
+            <h1>🎁 A Special Surprise Just for You, Priye Pdosn! 🎁</h1>
+    <p>Get ready, Reena Ji! Your amazing surprise is almost here! 🥳</p>
+            <p id="countdown">5</p>
+        </div>
+    </section>
+
+    <nav id="main-nav">🎂 Happy Birthday Reena 🎂</nav>
 
     <!-- Visible Main Sections -->
     <section class="main-section" id="main">
@@ -139,6 +214,21 @@
     </section>
 
     <script>
+        // Countdown logic
+        let count = 5;
+        const countdownText = document.getElementById("countdown");
+
+        const countdownTimer = setInterval(() => {
+            countdownText.textContent = count;
+            count--;
+            if (count < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown-screen").style.display = "none";
+                document.getElementById("main").style.display = "block";
+                document.getElementById("main-nav").style.display = "block";
+            }
+        }, 1000);
+
         function showSection(id) {
             document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
             document.getElementById(id).style.display = 'block';
